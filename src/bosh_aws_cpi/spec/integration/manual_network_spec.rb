@@ -273,6 +273,8 @@ describe Bosh::AwsCloud::Cloud do
 
     context 'without existing disks' do
       it 'should exercise the vm lifecycle' do
+        binding.pry
+
         vm_lifecycle do |instance_id|
           begin
             volume_id = @cpi.create_disk(2048, {}, instance_id)

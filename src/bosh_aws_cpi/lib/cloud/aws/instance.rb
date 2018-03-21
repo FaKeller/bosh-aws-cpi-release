@@ -112,7 +112,7 @@ module Bosh::AwsCloud
           table = tables.find { |t| t.id == definition.table_id }
           @logger.debug("Sending traffic for '#{definition.destination}' to '#{@aws_instance.id}' in '#{definition.table_id}'")
 
-          existing_route = table.routes.find do |route|
+          existing_route = table.data.routes.find do |route|
             !route.nil? && route.destination_cidr_block == definition.destination
           end
           if existing_route
